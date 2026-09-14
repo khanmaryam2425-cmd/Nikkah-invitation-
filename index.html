@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SOCIAL MEDIA PREVIEW (OPEN GRAPH TAGS) -->
+  <meta property="og:title" content="Nikkah Invitation | Maryam & Hamid" />
+  <meta property="og:description" content="With the Grace of Allah ﷻ, we warmly invite you to celebrate our Nikkah Ceremony. Click to open the invitation." />
+  <meta property="og:image" content="https://maryammansoor.github.io/Nikkah-Invitation/assets/og-cover.png" />
+  <meta property="og:image:secure_url" content="https://maryammansoor.github.io/Nikkah-Invitation/assets/og-cover.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://maryammansoor.github.io/Nikkah-Invitation/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nikkah Invitation | Maryam & Hamid" />
+  <meta name="twitter:description" content="With the Grace of Allah ﷻ, we warmly invite you to celebrate our Nikkah Ceremony." />
+  <meta name="twitter:image" content="https://maryammansoor.github.io/Nikkah-Invitation/assets/og-cover.png" />
+
+  <title>Nikkah Invitation | Hamid & Maryam</title>
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Golden Dust Effect -->
+  <canvas id="particleCanvas"></canvas>
+
+  <main class="card-viewport">
+    <!-- PERSISTENT FLOATING MUSIC BUTTON -->
+    <button id="musicToggleBtn" class="card-music-btn paused" aria-label="Toggle Music">
+      <svg class="music-icon icon-on" viewBox="0 0 24 24">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+      <svg class="music-icon icon-off hidden" viewBox="0 0 24 24">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+      </svg>
+    </button>
+
+    <!-- AUDIO ELEMENT -->
+    <audio id="bgMusic" loop preload="auto">
+      <source src="assets/audio/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ENVELOPE COVER (3D GATEFOLD SLIDING DOOR) -->
+    <div id="envelopeCover" class="envelope-cover">
+      <div class="satin-texture"></div>
+
+      <!-- NEW LUXURY TOP CALLIGRAPHY & HEADER -->
+      <div class="cover-top-header">
+        <div class="header-calligraphy">✦ بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ✦</div>
+        <p class="header-subtitle">Under the Divine Grace of Allah ﷻ</p>
+        <div class="header-gold-line"></div>
+      </div>
+
+      <!-- Left Sliding Door Panel -->
+      <div class="door-panel left-door">
+        <div class="door-inner">
+          <div class="floral-branch left-branch">
+            <img src="assets/floral.png" alt="Embroidered Floral Branch Left">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sliding Door Panel -->
+      <div class="door-panel right-door">
+        <div class="door-inner">
+          <div class="floral-branch right-branch">
+            <img src="assets/floral.png" alt="Embroidered Floral Branch Right">
+          </div>
+        </div>
+      </div>
+
+      <!-- LUXURIOUS 3D WAX SEAL WITH SPARKLE EFFECTS -->
+      <div class="wax-seal-wrapper" id="sealTrigger">
+        <div class="seal-sparkles">
+          <span>✨</span><span>✦</span><span>✨</span><span>✦</span>
+        </div>
+        <div class="pulse-ring"></div>
+        <div class="wax-seal-3d">
+          <div class="royal-crest-ring"></div>
+          <div class="seal-inner-border">
+            <span class="monogram-mh">𝑯 𝑴</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Ribbon Band -->
+      <div class="ribbon-band">
+        <div class="ribbon-text-track">
+          <span>✦ الحمد لله - In Infinite Gratitude to Allah &nbsp;✦&nbsp; United by His Divine Grace &nbsp;✦&nbsp;</span>
+          <span>✦ الحمد لله - In Infinite Gratitude to Allah &nbsp;✦&nbsp; United by His Divine Grace &nbsp;✦&nbsp;</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="bottom-action-area">
+        <button id="openBtn" class="pill-open-btn">
+          <span class="pill-leaf">❧</span>
+          <span class="pill-label">Reveal the Blessing</span>
+          <span class="pill-leaf">❧</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INVITATION CARD CONTENT -->
+    <div id="invitationContent" class="invitation-content hidden">
+
+      <!-- PAGE 1: STAGE REVEAL -->
+      <section class="card-page stage-page">
+        <img src="assets/stage-bj.png" class="bg-layer" alt="Stage Background" />
+
+        <div class="stage-header">
+          <img src="assets/bismillah.png" class="bismillah-img" alt="Bismillah" />
+          <h1 class="nikkah-title-script">NIKKAH <br> INVITATION</h1>
+        </div>
+
+        <div class="stage-scene-container">
+          <img src="assets/floral-arch.png" class="arch-layer" alt="Floral Arch Parda" />
+          <img src="assets/groom.png" class="groom-layer" alt="Groom" />
+          <img src="assets/bride.png" class="bride-layer" alt="Bride" />
+        </div>
+
+        <div class="stage-scroll-hint">
+          <span>Scroll for details</span>
+          <small>↓</small>
+        </div>
+      </section>
+
+      <!-- PAGE 2: TYPOGRAPHIC NIKKAH DESIGN -->
+      <section class="card-page luxury-page-2">
+        <div class="luxury-border-frame"></div>
+
+        <div class="page-inner reveal-element slide-up">
+          <div class="bismillah-calligraphy">وَخَلَقْنٰكُمْ أَزْوَاجًا</div>
+          <div class="verse-text">"And We created you in pairs"</div>
+
+          <div class="gold-accent-divider">
+            <span class="diamond">♦</span>
+            <span class="line"></span>
+            <span class="diamond">♦</span>
+          </div>
+
+          <p class="invite-header">With the Grace of Allah ﷻ, both families warmly invite you to celebrate a beautiful and blessed beginning.</p>
+
+          <div class="couples-block">
+            <h1 class="groom-name">Hamid</h1>
+            <div class="ampersand-wrapper">
+              <span class="gold-line"></span>
+              <span class="couples-and">&</span>
+              <span class="gold-line"></span>
+            </div>
+            <h1 class="bride-name">Maryam</h1>
+          </div>
+
+          <div class="event-pill">
+            <span>NIKKAH CEREMONY</span>
+          </div>
+
+          <!-- GUEST NAME DISPLAY BOX -->
+          <div class="guest-card-container">
+            <div class="guest-card-inner">
+              <span class="guest-card-subtitle">Cordially Invited</span>
+              <div class="guest-card-divider"></div>
+              <h3 id="displayGuestName" class="guest-card-title">Valued Guest</h3>
+              <p class="guest-card-note">To celebrate the union of two hearts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3: EVENT DETAILS -->
+      <section class="card-page luxury-page-2">
+        <div class="luxury-border-frame"></div>
+
+        <div class="page-inner">
+          <h2 class="section-title reveal-element slide-up">Event Details</h2>
+          
+          <div class="gold-accent-divider reveal-element slide-up delay-1">
+            <span class="diamond">♦</span>
+            <span class="line"></span>
+            <span class="diamond">♦</span>
+          </div>
+
+          <div class="details-list">
+            <!-- Date Card -->
+            <div class="detail-card reveal-element slide-up delay-1">
+              <div class="card-icon mini-calendar-badge">
+                <span class="badge-month">OCT</span>
+                <span class="badge-date">24</span>
+              </div>
+              <div class="card-info">
+                <span class="card-label">Date</span>
+                <p class="card-value date-highlight">
+                  <span class="day-text">Saturday</span>, 24 October 2026
+                </p>
+              </div>
+            </div>
+
+            <!-- Timing Card -->
+            <div class="detail-card reveal-element slide-up delay-2">
+              <div class="card-icon">✨</div>
+              <div class="card-info">
+                <span class="card-label">Timing</span>
+                <p class="card-value">08:00 PM onwards</p>
+              </div>
+            </div>
+
+            <!-- Dinner Card -->
+            <div class="detail-card reveal-element slide-up delay-3">
+              <div class="card-icon">🍽️</div>
+              <div class="card-info">
+                <span class="card-label">Dinner</span>
+                <p class="card-value">Served at 10:00 PM</p>
+              </div>
+            </div>
+
+            <!-- Venue Card -->
+            <div class="detail-card reveal-element slide-up delay-4">
+              <div class="card-icon">📍</div>
+              <div class="card-info">
+                <span class="card-label">Venue</span>
+                <p class="card-value venue-text">
+                  <strong>Shahi Ballroom</strong><br>
+                  <span class="address-sub">First Floor, Opposite Imtiaz, Nazimabad</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 4: COUNTDOWN TO FOREVER -->
+      <section class="card-page luxury-page-2 countdown-page">
+        <div class="luxury-border-frame"></div>
+
+        <div class="page-inner">
+          <div class="date-badge-top reveal-element slide-up">
+            <span class="day-header">Saturday</span>
+            <span class="divider-pipe">|</span>
+            <span class="date-header">24th October 2026</span>
+          </div>
+
+          <h2 class="countdown-main-title reveal-element slide-up delay-1">
+            The Countdown<br>To Forever
+          </h2>
+
+          <div class="gold-accent-divider reveal-element slide-up delay-2">
+            <span class="line"></span>
+            <span class="fleur-de-lis">⚜</span>
+            <span class="line"></span>
+          </div>
+
+          <div class="countdown-grid">
+            <div class="cd-grid-card reveal-element slide-up delay-3">
+              <span id="cdDays" class="cd-num">00</span>
+              <span class="cd-lbl">DAYS</span>
+            </div>
+            <div class="cd-grid-card reveal-element slide-up delay-4">
+              <span id="cdHours" class="cd-num">00</span>
+              <span class="cd-lbl">HOURS</span>
+            </div>
+            <div class="cd-grid-card reveal-element slide-up delay-5">
+              <span id="cdMins" class="cd-num">00</span>
+              <span class="cd-lbl">MINUTES</span>
+            </div>
+            <div class="cd-grid-card reveal-element slide-up delay-6">
+              <span id="cdSecs" class="cd-num">00</span>
+              <span class="cd-lbl">SECONDS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 5: LOCATE THE VENUE -->
+      <section class="card-page luxury-page-2 venue-map-page">
+        <div class="luxury-border-frame"></div>
+
+        <div class="page-inner">
+          <h2 class="section-title reveal-element slide-up">Locate The Venue</h2>
+
+          <div class="gold-accent-divider reveal-element slide-up delay-1">
+            <span class="diamond">♦</span>
+            <span class="line"></span>
+            <span class="diamond">♦</span>
+          </div>
+
+          <div class="map-container-frame reveal-element slide-up delay-2">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.3614838618796!2d67.030635!3d24.91978!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f11d179d6bf%3A0x8687a31eb6df7cf9!2sShahi%20Ballroom!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <p class="map-venue-name reveal-element slide-up delay-3">
+            <strong>Shahi Ballroom</strong><br>
+            <span>First Floor, Opposite Imtiaz, Nazimabad</span>
+          </p>
+
+          <div class="map-btn-wrapper reveal-element slide-up delay-4">
+            <a 
+              href="https://maps.google.com/?q=Shahi+Ballroom+Nazimabad" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="gold-theme-btn"
+            >
+              <span class="btn-icon">📍</span> Open Google Maps
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 6: RSVP & CONTACT -->
+      <section class="card-page luxury-page-2 rsvp-page">
+        <div class="luxury-border-frame"></div>
+
+        <div class="page-inner">
+          <h2 class="section-title reveal-element slide-up">RSVP & Blessings</h2>
+          
+          <div class="gold-accent-divider reveal-element slide-up delay-1">
+            <span class="diamond">♦</span>
+            <span class="line"></span>
+            <span class="diamond">♦</span>
+          </div>
+
+          <!-- RSVP Form -->
+          <form id="rsvpForm" class="rsvp-luxury-form reveal-element slide-up delay-2">
+            <div class="form-group">
+              <input type="text" id="rsvpName" placeholder="Your Full Name" required class="gold-input">
+            </div>
+
+            <div class="form-group">
+              <select id="rsvpAttendance" required class="gold-input">
+                <option value="" disabled selected>Will you join us?</option>
+                <option value="Joyfully Accept">Joyfully Accept</option>
+                <option value="Regretfully Decline">Regretfully Decline</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <textarea id="rsvpMessage" rows="3" placeholder="Write your heartfelt prayer / message..." class="gold-input"></textarea>
+            </div>
+
+            <!-- Voice Note Recording Controls -->
+            <div class="voice-recorder-box">
+              <label class="voice-lbl">🎙️ Record Voice Blessing (Optional)</label>
+              <div class="voice-controls">
+                <button type="button" id="recordBtn" class="voice-btn">
+                  <span id="recordIcon">🔴</span> <span id="recordText">Record</span>
+                </button>
+                <span id="recordingTimer" class="timer-display">00:00</span>
+              </div>
+              <audio id="audioPreview" controls class="audio-player hidden"></audio>
+            </div>
+
+            <button type="submit" id="submitRsvpBtn" class="gold-theme-btn submit-rsvp-btn">Send RSVP & Blessings</button>
+          </form>
+
+          <!-- FOR INQUIRIES & ASSISTANCE -->
+          <div class="contact-section reveal-element slide-up delay-3">
+            <p class="contact-title">FOR INQUIRIES & ASSISTANCE</p>
+            
+            <div class="premium-contact-grid">
+              <!-- Host 1 -->
+              <div class="host-card">
+                <div class="host-info">
+                  <span class="host-name">M. Hamid</span>
+                  <span class="host-num">0342 8146653</span>
+                </div>
+                <div class="host-actions">
+                  <a href="https://wa.me/923428146653?text=Assalamu%20Alaikum!%20Inquiry%20regarding%20Nikkah%20Ceremony." target="_blank" rel="noopener noreferrer" class="action-btn wa-btn" title="Chat on WhatsApp">
+                    <svg class="action-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.69 8.24 8.24 0 4.55-3.69 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.23 8.25-8.23m4.52 11.23c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.02-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.45.06-.69.32-.23.25-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.82 2.78 4.41 3.9 1.15.5 1.77.56 2.43.46.74-.11 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3z"/></svg>
+                    WhatsApp
+                  </a>
+                  <a href="tel:+923428146653" class="action-btn call-btn" title="Direct Phone Call">
+                    <svg class="action-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call
+                  </a>
+                </div>
+              </div>
+
+              <!-- Host 2 -->
+              <div class="host-card">
+                <div class="host-info">
+                  <span class="host-name">M. Saqib</span>
+                  <span class="host-num">0319 6185201</span>
+                </div>
+                <div class="host-actions">
+                  <a href="https://wa.me/923196185201?text=Assalamu%20Alaikum!%20Inquiry%20regarding%20Nikkah%20Ceremony." target="_blank" rel="noopener noreferrer" class="action-btn wa-btn" title="Chat on WhatsApp">
+                    <svg class="action-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.69 8.24 8.24 0 4.55-3.69 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.23 8.25-8.23m4.52 11.23c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.65.81-.8.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.02-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.45.06-.69.32-.23.25-.9.88-.9 2.15s.92 2.5 1.05 2.67c.13.17 1.82 2.78 4.41 3.9 1.15.5 1.77.56 2.43.46.74-.11 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.3z"/></svg>
+                    WhatsApp
+                  </a>
+                  <a href="tel:+923196185201" class="action-btn call-btn" title="Direct Phone Call">
+                    <svg class="action-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POPUP MODALS -->
+      <div id="thankYouModal" class="modal-overlay hidden">
+        <div class="modal-card">
+          <button id="closeModal" class="modal-close-btn">&times;</button>
+          <div class="modal-decor">✨ 💍 ✨</div>
+          <h3 class="modal-title">Thank You So Much!</h3>
+          <p class="modal-text">Your response has been saved. We will be eagerly awaiting your presence to celebrate this beautiful day with us!</p>
+          <div class="monogram-footer">H & M</div>
+        </div>
+      </div>
+
+      <div id="declineModal" class="modal-overlay hidden">
+        <div class="modal-card">
+          <button id="closeDeclineModal" class="modal-close-btn">&times;</button>
+          <div class="modal-decor">✨ 🤲 ✨</div>
+          <h3 class="modal-title">We Will Miss You!</h3>
+          <p class="modal-text">Thank you for letting us know. Your heartfelt prayers and warm wishes mean the world to us!</p>
+          <div class="monogram-footer">H & M</div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="site-luxury-footer">
+        <h1 class="footer-monogram">H & M</h1>
+        <p class="footer-tagline">With Prayers & Love from Family</p>
+        <p class="footer-date">24 . 10 . 2026</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
