@@ -5,7 +5,9 @@ const config = {
   eventISO: "2026-10-24T20:00:00"
 };
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDr9xZN0zwF6i9Y95RM5cJNN5pHBe9tXzd39TXMAWiCZ3q4RL1l4VWgboD4La1E6V1XA/exec";
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzaVw3oY6QNGvmQ1gJdQ1QKC8yCW0Ux0BUPI4VpJJZO8jgigQ3oHIqMBZlVGfa2FdjSKw/exec";
+
 let mediaRecorder = null;
 let audioChunks = [];
 let recordedAudioBlob = null;
