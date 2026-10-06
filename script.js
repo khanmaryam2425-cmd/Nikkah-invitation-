@@ -6,7 +6,6 @@ const config = {
 };
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaVw3oY6QNGvmQ1gJdQ1QKC8yCW0Ux0BUPI4VpJJZO8jgigQ3oHIqMBZlVGfa2FdjSKw/exec";
-
 let mediaRecorder = null;
 let audioChunks = [];
 let recordedAudioBlob = null;
