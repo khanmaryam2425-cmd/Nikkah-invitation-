@@ -207,17 +207,18 @@ function initVoiceRecorder() {
    ========================================== */
 async function handleRSVPSubmit(e) {
   e.preventDefault();
-  
+
   const submitBtn = document.getElementById("submitRsvpBtn");
+
   if (submitBtn) {
     submitBtn.innerText = "SENDING...";
     submitBtn.disabled = true;
   }
 
-  const name = document.getElementById("rsvpName").value;
-   const contact = document.getElementById("rsvpContact").value;
+  const name = document.getElementById("rsvpName").value.trim();
+  const contact = document.getElementById("rsvpContact").value.trim();
   const attending = document.getElementById("rsvpAttendance").value;
-  const message = document.getElementById("rsvpMessage").value;
+  const message = document.getElementById("rsvpMessage").value.trim();
 
   let audioBase64 = "";
 
@@ -225,7 +226,11 @@ async function handleRSVPSubmit(e) {
     try {
       audioBase64 = await new Promise((resolve) => {
         const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
+
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+
         reader.readAsDataURL(recordedAudioBlob);
       });
     } catch (err) {
@@ -235,6 +240,7 @@ async function handleRSVPSubmit(e) {
 
   const payload = {
     name: name,
+    contact: contact,
     attending: attending,
     message: message,
     audioBase64: audioBase64
@@ -243,21 +249,25 @@ async function handleRSVPSubmit(e) {
   try {
     await fetch(SCRIPT_URL, {
       method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
       body: JSON.stringify(payload)
     });
 
     showRSVPModal(e.target, attending);
+
   } catch (err) {
     console.error("Submission Error:", err);
     showRSVPModal(e.target, attending);
+
   } finally {
     if (submitBtn) {
       submitBtn.innerText = "Send RSVP & Blessings";
       submitBtn.disabled = false;
     }
   }
-}
+}}
 
 /* ==========================================
    MODAL POPUP LOGIC
