@@ -216,6 +216,7 @@ async function handleRSVPSubmit(e) {
   }
 
   const name = document.getElementById("rsvpName").value;
+   const contact = document.getElementById("rsvpContact").value;
   const attending = document.getElementById("rsvpAttendance").value;
   const message = document.getElementById("rsvpMessage").value;
 
